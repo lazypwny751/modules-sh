@@ -6,7 +6,7 @@
 
 ![Profile views](https://gpvc.arturio.dev/lazypwny751)
 
-![logo](https://raw.githubusercontent.com/lazypwny751/testrepo/main/bash.sh-logo.png)
+![logo](https://github.com/lazypwny751/testrepo/blob/main/modules.sh-logo.png)
 
 ## Downloand&installation
 
