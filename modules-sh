@@ -14,6 +14,7 @@ blue="\033[1;34m"
 tp="\e[0m"
 
 owner="lazypwny751"
+useincludeas="source include-sh"
 version="1.0"
 
 if [[ $(command -v modules-sh) = "" ]] ; then
@@ -21,20 +22,7 @@ if [[ $(command -v modules-sh) = "" ]] ; then
     exit 1
 fi
 
-function directlyuse {
-    if [[ $(echo "$SHELL" | tr "/" " " | awk '{print $NF}') = "bash" ]] ; then
-        if [[ $(cat ~/.bashrc | grep "alias include-sh='source include-sh'") != "" ]] ; then
-            useincludeas="include-sh"
-        else
-            useincludeas="source include-sh"    
-        fi
-    else
-    useincludeas="source include-sh"
-    fi
-}
-
 if [[ "$1" =~ ^(-h|--help|-H|--HELP|help)$ ]] ; then
-    directlyuse
     echo -e "${yellow}Usage$tp: You can use the incubator to include\nthe module you want in the top line \n(below the shebang line) inside your scripts\nin the form of $red'${useincludeas} <module-name>'$tp. In advance:\n"
     echo -e "${blue}#!/bin/bash ${green}# this is the first line so she bang"
     echo -e "${blue}${useincludeas} color ${green}# this is the module of the tou want to use for example color.sh"
@@ -58,7 +46,6 @@ elif [[ "$1" =~ ^(-ls|--list|-LS|--LIST|list)$ ]] ; then
     ls -1a /usr/share/shell-modules/*.sh | tr "/" " " | awk '{print $NF}' | tr "." " " | awk '{print $1}'
     exit 0
 else
-    directlyuse
     echo -e "${yellow}Usage$tp: You can use the incubator to include\nthe module you want in the top line \n(below the shebang line) inside your scripts\nin the form of $red'${useincludeas} <module-name>'$tp. In advance:\n"
     echo -e "${blue}#!/bin/bash ${green}# this is the first line so she bang"
     echo -e "${blue}${useincludeas} color ${green}# this is the module of the tou want to use for example color.sh"

@@ -46,22 +46,6 @@ function install {
     chmod 755 "/bin/include-sh"
     chmod 755 "/bin/modules-sh"
     chmod 755 /usr/share/shell-modules/*
-
-    if [[ $(echo "$SHELL" | tr "/" " " | awk '{print $NF}') = "bash" ]] ; then
-        if [[ $(cat /home/${SUDO_USER:-${USER}}/.bashrc | grep "alias include-sh='source include-sh'") = "" ]] ; then
-            read -p "simple to use save the .bashrc file in? [Y/n]:> " x
-            case $x in
-                [nN])
-                    echo "passed.."
-                ;;
-                *)
-                    echo "alias include-sh='source include-sh'" >> /home/${SUDO_USER:-${USER}}/.bashrc
-                    echo "pls restart your shell session. ['close all open terminal and reopen' or 'type source ~/.bashrc']"
-                ;;
-            esac
-        fi
-    fi
-
     echo "${arg} completed successfully"
 }
 
