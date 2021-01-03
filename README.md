@@ -4,8 +4,6 @@
   <a href="https://www.github.com/lazypwny751" target"blank_"><img src="https://img.shields.io/badge/GitHub%20-191717.svg?&style=for-the-badge&logo=github&logoColor=white"></a>
 </p>
 
-![Profile views](https://gpvc.arturio.dev/lazypwny751)
-
 ![logo](https://github.com/lazypwny751/testrepo/blob/main/modules.sh-logo.png)
 
 ## Downloand&installation
@@ -33,6 +31,8 @@ echo -e "${red} it is red${reset}"
 ![4](https://github.com/lazypwny751/testrepo/blob/main/modules.sh-module-info.png?raw=true)
 
 ##
+
+![Profile views](https://gpvc.arturio.dev/lazypwny751)
 
 <p align="center">
   <img align="center" src="https://github-readme-stats.vercel.app/api?username=lazypwny751&count_private=true&show_icons=true&theme=whitek&hide_border=true" width="%100" height="150px"
