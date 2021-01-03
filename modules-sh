@@ -1,0 +1,68 @@
+#!/bin/bash
+
+#########################
+# a script by lazy-pwny #
+#########################
+
+#Colors
+white="\033[1;37m"
+red="\033[1;31m"
+green="\033[1;32m"
+yellow="\033[1;33m"
+purple="\033[0;35m"
+blue="\033[1;34m"
+tp="\e[0m"
+
+owner="lazypwny751"
+version="1.0"
+
+if [[ $(command -v modules-sh) = "" ]] ; then
+    echo "You need to install this tool before use pls type: 'sudo bash installer.sh --install'"
+    exit 1
+fi
+
+function directlyuse {
+    if [[ $(echo "$SHELL" | tr "/" " " | awk '{print $NF}') = "bash" ]] ; then
+        if [[ $(cat ~/.bashrc | grep "alias include-sh='source include-sh'") != "" ]] ; then
+            useincludeas="include-sh"
+        else
+            useincludeas="source include-sh"    
+        fi
+    else
+    useincludeas="source include-sh"
+    fi
+}
+
+if [[ "$1" =~ ^(-h|--help|-H|--HELP|help)$ ]] ; then
+    directlyuse
+    echo -e "${yellow}Usage$tp: You can use the incubator to include\nthe module you want in the top line \n(below the shebang line) inside your scripts\nin the form of $red'${useincludeas} <module-name>'$tp. In advance:\n"
+    echo -e "${blue}#!/bin/bash ${green}# this is the first line so she bang"
+    echo -e "${blue}${useincludeas} color ${green}# this is the module of the tou want to use for example color.sh"
+    echo -e "${blue}"'echo -e "${red}test${reset}"'" ${green}# this is the example of usage module to the color.sh$tp\n"
+    echo -e "$white--version: show set version of this module includer$tp"
+    echo -e "$white--list: list all modules of you have$tp"
+    echo -e "$white--module <module-name>: see any module of the manual page$tp"
+    echo -e "$white--help: show this page$tp"
+    exit 0
+elif [[ "$1" =~ ^(-v|--version|-V|--VERSION|version)$ ]] ; then
+    echo "${version} ${owner}"
+    exit 0
+elif [[ "$1" =~ ^(-m|--module|-M|--MODULE|module)$ ]] ; then
+    if [ -e "/usr/share/shell-modules/$2.sh" ] ; then
+        cat "/usr/share/shell-modules/$2.sh" | grep '##!->' | awk '{first = " "; $1 = ""; print $0, first;}'
+    else
+        echo "module not found!"
+    fi
+    exit 0
+elif [[ "$1" =~ ^(-ls|--list|-LS|--LIST|list)$ ]] ; then
+    ls -1a /usr/share/shell-modules/*.sh | tr "/" " " | awk '{print $NF}' | tr "." " " | awk '{print $1}'
+    exit 0
+else
+    directlyuse
+    echo -e "${yellow}Usage$tp: You can use the incubator to include\nthe module you want in the top line \n(below the shebang line) inside your scripts\nin the form of $red'${useincludeas} <module-name>'$tp. In advance:\n"
+    echo -e "${blue}#!/bin/bash ${green}# this is the first line so she bang"
+    echo -e "${blue}${useincludeas} color ${green}# this is the module of the tou want to use for example color.sh"
+    echo -e "${blue}"'echo -e "${red}test${reset}"'" ${green}# this is the example of usage module to the color.sh$tp\n"
+    echo "invalid argument type 'modules-sh --help' to see what can be done."
+    exit 1
+fi

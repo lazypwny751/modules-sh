@@ -1,0 +1,24 @@
+#!/bin/bash
+
+#########################
+# a script by lazy-pwny #
+#########################
+
+if [[ $(command -v include-sh) = "" ]] ; then
+    echo "You need to install this tool before use pls type: 'sudo bash installer.sh --install'"
+    exit 1
+fi
+
+if [ "${#}" -gt 0 ] ; then
+    for i in $( seq 1 $# ) ; do
+        if [ -e /usr/share/shell-modules/${@:i:1}.sh ] ; then
+            source /usr/share/shell-modules/${@:i:1}.sh
+        elif [ -e "/usr/share/shell-modules/${@:i:1}" ] ; then
+            source "/usr/share/shell-modules/${@:i:1}"
+        else
+            echo -e "no module found '${@:i:1}', type 'modules-sh -ls' to\nsee available modules and 'modules-sh --module <module-name>' to get\ninformation about these modules.\n"
+        fi
+    done
+else
+    echo "wrong use. If you want to know how to use it, try 'modules-sh --help'"
+fi
