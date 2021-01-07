@@ -9,7 +9,7 @@ if [[ $(command -v include-sh) = "" ]] ; then
     exit 1
 fi
 
-if [ "${#}" -gt 0 ] ; then
+if [ "${#}" -gt 1 ] ; then
     for i in $( seq 1 $# ) ; do
         if [ -e /usr/share/shell-modules/${@:i:1}.sh ] ; then
             source /usr/share/shell-modules/${@:i:1}.sh

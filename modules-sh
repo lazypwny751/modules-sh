@@ -30,6 +30,7 @@ if [[ "$1" =~ ^(-h|--help|-H|--HELP|help)$ ]] ; then
     echo -e "$white--version: show set version of this module includer$tp"
     echo -e "$white--list: list all modules of you have$tp"
     echo -e "$white--module <module-name>: see any module of the manual page$tp"
+    echo -e "$white--req2get <module-name>: installer of the tools needed by the modules$tp"
     echo -e "$white--help: show this page$tp"
     exit 0
 elif [[ "$1" =~ ^(-v|--version|-V|--VERSION|version)$ ]] ; then
@@ -45,6 +46,8 @@ elif [[ "$1" =~ ^(-m|--module|-M|--MODULE|module)$ ]] ; then
 elif [[ "$1" =~ ^(-ls|--list|-LS|--LIST|list)$ ]] ; then
     ls -1a /usr/share/shell-modules/*.sh | tr "/" " " | awk '{print $NF}' | tr "." " " | awk '{print $1}'
     exit 0
+elif [[ "$1" =~ ^(req2get|REQ2GET|--req2get|--REQ2GET|-r2g)$ ]] ; then # will be upgraded
+    [ -z ${2} ] && echo "Give Me A Module Name To Need Req2Get" || [ -e /usr/share/shell-modules/${2}.sh ] && bash /usr/share/shell-modules/"${2}".sh -r2g || echo "${2}: module not found or run it as root"
 else
     echo -e "${yellow}Usage$tp: You can use the incubator to include\nthe module you want in the top line \n(below the shebang line) inside your scripts\nin the form of $red'${useincludeas} <module-name>'$tp. In advance:\n"
     echo -e "${blue}#!/bin/bash ${green}# this is the first line so she bang"

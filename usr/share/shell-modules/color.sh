@@ -93,3 +93,16 @@ BGIblue='\033[0;104m'    # Blue
 BGIpurple='\033[0;105m'  # Purple
 BGIcyan='\033[0;106m'    # Cyan
 BGIwhite='\033[0;107m'   # White
+
+
+    ##!-> radnomcolor is a function you can call this function before a text for example
+    ##!-> randomcolor ; echo "this is a example${reset}" and it will make your word to ink
+randomcolor() {
+    echo -ne "\e[3$(( $RANDOM * 6 / 32767 + 1 ))m"
+}
+
+case ${1} in
+    randomcolor)
+        randomcolor
+    ;;
+esac
