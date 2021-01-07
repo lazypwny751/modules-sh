@@ -13,7 +13,7 @@ endline="false"
     ##!-> netcheck -p
 
 netcheck() {
-    ping -q -w1 -c1 google.com &>/dev/null && netcheck="online" || netchec="offline"
+    ping -q -w1 -c1 google.com &>/dev/null && netcheck="online" || netcheck="offline"
     case ${1} in
         print|PRINT|-p)
             echo "${netcheck}"
