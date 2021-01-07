@@ -1,4 +1,4 @@
-<h1 align="center">modules.sh</h1>
+<h1 align="center">modules-sh</h1>
 <p align="center">
  <a href="https://discord.gg/RUCZpVr9tp" target"blank_"><img src="https://img.shields.io/badge/Discord%20-7289DA.svg?&style=for-the-badge&logo=discord&logoColor=white"></a>
   <a href="https://www.github.com/lazypwny751" target"blank_"><img src="https://img.shields.io/badge/GitHub%20-191717.svg?&style=for-the-badge&logo=github&logoColor=white"></a>
@@ -9,9 +9,15 @@
 ## Downloand&installation
 
 ```bash
-$ git clone https://github.com/lazypwny751/modules.sh.git
+$ git clone https://github.com/lazypwny751/modules-sh.git
 $ cd modules.sh && sudo bash ./installer.sh --install
 ```
+### after instalation for help type
+
+```bash
+$ modules-sh --help
+```
+
 ![1](https://raw.githubusercontent.com/lazypwny751/testrepo/main/modules.sh-install.png)
 
 ## Usage (**in bash script**)
